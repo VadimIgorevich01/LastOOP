@@ -34,7 +34,8 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
             }
         }
         if (noArg == charArray.length) {
-            throw new Exception("Введите мнимую часть комплексного числа в формате число, буква. Например 3i");
+            throw new Exception("Введите мнимую часть комплексного числа в формате " +
+                    "число, буква. Например 3i");
         } else if (chArrIntOnly.isEmpty()) {
             int oneArg = 1;
             return applySignComNum(num, oneArg);
@@ -69,15 +70,18 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
     }
 
     @Override
-    public int MultiplyImagAndRealParts(NumbersPool ComNumImagPart, int AnotherComNumRealPart) throws Exception {
+    public int MultiplyImagAndRealParts(NumbersPool ComNumImagPart,
+                                        int AnotherComNumRealPart) throws Exception {
         int imagPartFirtstNumInt = ImagPartFrStrToInt(ComNumImagPart);
         int multiplyResult = AnotherComNumRealPart * imagPartFirtstNumInt;
         return multiplyResult;
     }
 
     @Override
-    public int MultiplyTwoImagParts(NumbersPool firstComNum, NumbersPool secondComNum) throws Exception {
-        int imagPartSecNumInt = ImagPartFrStrToInt(firstComNum) * ImagPartFrStrToInt(secondComNum);
+    public int MultiplyTwoImagParts(NumbersPool firstComNum,
+                                    NumbersPool secondComNum) throws Exception {
+        int imagPartSecNumInt = ImagPartFrStrToInt(firstComNum) *
+                ImagPartFrStrToInt(secondComNum);
         return imagPartSecNumInt;
     }
 
@@ -104,7 +108,8 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
                 reductionOk = 0;
             }
         }
-        NumbersPool fractionComNum = new FractionComNum(FrIntRealImagToComNum(realPart, imaginaryPart), down);
+        NumbersPool fractionComNum = new FractionComNum(FrIntRealImagToComNum(realPart,
+                imaginaryPart), down);
         return fractionComNum;
     }
 
@@ -117,6 +122,4 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
             return imaginaryNumber;
         }
     }
-
-
 }

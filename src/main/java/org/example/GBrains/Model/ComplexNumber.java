@@ -34,7 +34,7 @@ public class ComplexNumber extends NumbersPool {
 
     @Override
     String getNumberType() {
-        return "Это абстрактное число";
+        return "Абстрактный";
     }
 
     @Override

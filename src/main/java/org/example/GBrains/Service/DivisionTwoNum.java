@@ -21,7 +21,8 @@ public class DivisionTwoNum extends MultiplicationTwoNum implements OperableTwoN
 
             return functionComNum.reduction (up, down);
         } else {
-            throw new Exception("На данный момент калькулятор работает только с комплексными числами");
+            throw new Exception("На данный момент калькулятор работает только " +
+                    "с комплексными числами");
         }
     }
 }

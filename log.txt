@@ -1,0 +1,9 @@
+мар. 01, 2024 3:47:17 AM org.example.GBrains.Controller.Controller run
+INFO: Используется два комплексных числа:
+13 + i и 7 - 6i
+мар. 01, 2024 3:47:17 AM org.example.GBrains.Controller.Controller run
+INFO: Результат сложения = 20 - 5i
+мар. 01, 2024 3:47:17 AM org.example.GBrains.Controller.Controller run
+INFO: Результат умножения = 97 - 71i
+мар. 01, 2024 3:47:17 AM org.example.GBrains.Controller.Controller run
+INFO: Результат деления = 1 + i

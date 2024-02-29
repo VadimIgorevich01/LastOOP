@@ -14,7 +14,8 @@ public class AdditionTwoNum implements OperableTwoNum {
                     + functionComNum.ImagPartFrStrToInt(num2);
             return functionComNum.FrIntRealImagToComNum(realPartSum, imaginaryPartSum);
         } else {
-            throw new Exception("На данный момент калькулятор работает только с комплексными числами");
+            throw new Exception("На данный момент калькулятор работает " +
+                    "только с комплексными числами");
         }
     }
 }

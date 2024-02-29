@@ -3,7 +3,6 @@ package org.example.GBrains.Service;
 import org.example.GBrains.Model.NumbersPool;
 import org.example.GBrains.Model.ComplexNumber;
 import org.example.GBrains.Model.MathOpForCompNum;
-
 import java.util.ArrayList;
 import java.util.List;
 

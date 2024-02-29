@@ -1,6 +1,6 @@
 package org.example.GBrains.Controller;
 
-
+import org.example.GBrains.Logger.LoggerClass;
 import org.example.GBrains.Model.ComplexNumber;
 import org.example.GBrains.Model.NumbersPool;
 import org.example.GBrains.Service.CalculatorType1;
@@ -17,21 +17,23 @@ public class Controller {
     Viewable printToConsole = new ToConsole();
 
 
+
     public void run () throws Exception {
-        printToConsole.showInConsole("Используются два комплексных числа:");
-        printToConsole.showInConsole(dataSource1.getData().get(0) + " и " + dataSource1.getData().get(1));
+        LoggerClass.configureLogger();
+        printToConsole.showInConsole("Вся информация выводится в консоль через логгер.");
+        LoggerClass.logger.info("Используется два комплексных числа:\n"
+                + dataSource1.getData().get(0) + " и " + dataSource1.getData().get(1));
 
         result = calculatorType1.addition(dataSource1.getData().get(0),
                 dataSource1.getData().get(1));
-        printToConsole.showInConsole("Результат сложения = " + result);
+        LoggerClass.logger.info("Результат сложения = " + result);
 
         result = calculatorType1.multiplication(dataSource1.getData().get(0),
                 dataSource1.getData().get(1));
-        printToConsole.showInConsole("Результат умножения = " + result);
+        LoggerClass.logger.info("Результат умножения = " + result);
 
         result = calculatorType1.division (dataSource1.getData().get(0),
                 dataSource1.getData().get(1));
-        printToConsole.showInConsole("Результат деления = " + result);
+        LoggerClass.logger.info("Результат деления = " + result);
     }
-
 }

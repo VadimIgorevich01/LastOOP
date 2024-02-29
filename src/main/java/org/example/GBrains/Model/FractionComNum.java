@@ -20,7 +20,8 @@ public class FractionComNum extends ComplexNumber{
         } else {
             return String.valueOf("(" + comNumber.getNumberA()) + " "
                     + ((ComplexNumber) comNumber).getMathOperation() +
-                    " " + ((ComplexNumber) comNumber).getImaginaryPartWArg() + ")" + " / " + down;
+                    " " + ((ComplexNumber) comNumber).getImaginaryPartWArg() + ")"
+                    + " / " + down;
         }
     }
 
@@ -31,7 +32,7 @@ public class FractionComNum extends ComplexNumber{
 
     @Override
     String getNumberType() {
-        return "Это дробь с абстрактным числм";
+        return "Абстрактная дробь";
     }
 
     public int getDown() {
@@ -43,6 +44,4 @@ public class FractionComNum extends ComplexNumber{
     }
 
     private int down;
-
-
 }
