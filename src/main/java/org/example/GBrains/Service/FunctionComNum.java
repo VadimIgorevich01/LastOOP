@@ -1,9 +1,12 @@
 package org.example.GBrains.Service;
 
 import org.example.GBrains.Model.ComplexNumber;
+import org.example.GBrains.Model.FractionComNum;
 import org.example.GBrains.Model.MathOpForCompNum;
 import org.example.GBrains.Model.NumbersPool;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class FunctionComNum implements ApplicableFunctionsComNum {
@@ -47,20 +50,21 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
     }
 
     @Override
-    public NumbersPool FrIntRealImagToComNum(int realPartSum, int imaginaryPartSum) {
-        String imaginaryPartSumStr = Integer.toString(imaginaryPartSum);
-        imaginaryPartSumStr += "i";
-        if (imaginaryPartSum < 0) {
-            imaginaryPartSum *= -1;
-            imaginaryPartSumStr = Integer.toString(imaginaryPartSum);
-            imaginaryPartSumStr += "i";
-            NumbersPool additionResult = new ComplexNumber(realPartSum,
-                    MathOpForCompNum.SUBTRACTION, imaginaryPartSumStr);
-            return additionResult;
+    public NumbersPool FrIntRealImagToComNum(int realPart, int imaginaryPart) {
+        String imaginaryPartStr = Integer.toString(Math.abs(imaginaryPart));
+        if (imaginaryPart == 1 || imaginaryPart == - 1) {
+            imaginaryPartStr = "i";
         } else {
-            NumbersPool additionResult = new ComplexNumber(realPartSum,
-                    MathOpForCompNum.ADDITION, imaginaryPartSumStr);
-            return additionResult;
+            imaginaryPartStr += "i";
+        }
+        if (imaginaryPart < 0) {
+            NumbersPool createdComNum = new ComplexNumber(realPart,
+                    MathOpForCompNum.SUBTRACTION, imaginaryPartStr);
+            return createdComNum;
+        } else {
+            NumbersPool createdComNum = new ComplexNumber(realPart,
+                    MathOpForCompNum.ADDITION, imaginaryPartStr);
+            return createdComNum;
         }
     }
 
@@ -77,6 +81,33 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
         return imagPartSecNumInt;
     }
 
+    @Override
+    public NumbersPool reduction(NumbersPool up, int down) throws Exception {
+        int realPart = up.getNumberA();
+        int imaginaryPart = ImagPartFrStrToInt(up);
+        int[] array = new int[]{realPart, imaginaryPart, down};
+        int max = Arrays.stream(array).max().getAsInt();
+        int reductionOk = 0;
+
+        for (int i = max; i > 1 ; i--) {
+            for (int j = 0; j < array.length; j++) {
+                if (array [j] % i == 0) {
+                    ++reductionOk;
+                }
+            }
+            if (reductionOk == 3) {
+                realPart /= i;
+                imaginaryPart /= i;
+                down /= i;
+                i = 1;
+            } else {
+                reductionOk = 0;
+            }
+        }
+        NumbersPool fractionComNum = new FractionComNum(FrIntRealImagToComNum(realPart, imaginaryPart), down);
+        return fractionComNum;
+    }
+
 
     private int applySignComNum (NumbersPool num, int imaginaryNumber) {
         if (((ComplexNumber) num).getMathOperation() == "-") {
@@ -86,5 +117,6 @@ public class FunctionComNum implements ApplicableFunctionsComNum {
             return imaginaryNumber;
         }
     }
+
 
 }

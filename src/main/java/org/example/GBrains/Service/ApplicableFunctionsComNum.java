@@ -8,4 +8,6 @@ public interface ApplicableFunctionsComNum {
     int MultiplyImagAndRealParts(NumbersPool SecondNum, int realPartSecNum) throws Exception;
 
     int MultiplyTwoImagParts (NumbersPool firstComNum, NumbersPool secondComNum) throws Exception;
+
+    NumbersPool reduction(NumbersPool up, int down) throws Exception;
 }

@@ -28,6 +28,10 @@ public class ComplexNumber extends NumbersPool {
         }
     }
 
+    public void setMathOperation(MathOpForCompNum mathOperation) {
+        this.mathOperation = mathOperation;
+    }
+
     @Override
     String getNumberType() {
         return "Это абстрактное число";

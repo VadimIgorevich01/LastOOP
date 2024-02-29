@@ -9,9 +9,9 @@ import java.util.List;
 
 public class CompNumberData implements DataSourceMarker {
     public NumbersPool complexNum1 = new ComplexNumber
-            (2, MathOpForCompNum.ADDITION, "i");
+            (13, MathOpForCompNum.ADDITION, "i");
     public NumbersPool complexNum2 = new ComplexNumber
-            (0, MathOpForCompNum.ADDITION, "7i");
+            (7, MathOpForCompNum.SUBTRACTION, "6i");
     List<NumbersPool> dataNumbers = new ArrayList<>();
 
 

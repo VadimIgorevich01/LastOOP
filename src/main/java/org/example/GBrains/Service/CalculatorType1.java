@@ -5,14 +5,20 @@ import org.example.GBrains.Model.NumbersPool;
 public class CalculatorType1 implements SuitableCalculators {
     OperableTwoNum addition = new AdditionTwoNum();
     OperableTwoNum multiplication = new MultiplicationTwoNum();
+    OperableTwoNum division = new DivisionTwoNum();
 
-    public NumbersPool addition(NumbersPool comNum1, NumbersPool comNum2) throws Exception {
-        return addition.operate(comNum1, comNum2);
+    public NumbersPool addition(NumbersPool Num1, NumbersPool Num2) throws Exception {
+        return addition.operate(Num1, Num2);
     }
 
     @Override
-    public NumbersPool multiplication(NumbersPool comNum1, NumbersPool comNum2) throws Exception {
-        return multiplication.operate(comNum1, comNum2);
+    public NumbersPool multiplication(NumbersPool Num1, NumbersPool Num2) throws Exception {
+        return multiplication.operate(Num1, Num2);
+    }
+
+    @Override
+    public NumbersPool division(NumbersPool Num1, NumbersPool Num2) throws Exception {
+        return division.operate(Num1, Num2);
     }
 
 
