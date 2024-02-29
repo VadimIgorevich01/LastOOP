@@ -5,5 +5,5 @@ import org.example.GBrains.Model.NumbersPool;
 
 public interface OperableTwoNum {
 
-    NumbersPool operate (NumbersPool Num1, NumbersPool Num2) throws Exception;
+    NumbersPool operate (NumbersPool num1, NumbersPool num2) throws Exception;
 }
