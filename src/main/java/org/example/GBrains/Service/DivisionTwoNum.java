@@ -9,7 +9,7 @@ public class DivisionTwoNum extends MultiplicationTwoNum implements OperableTwoN
     public NumbersPool operate(NumbersPool num1, NumbersPool num2) throws Exception {
         if (num1 instanceof ComplexNumber && num2 instanceof ComplexNumber) {
             int downReal = (int) Math.pow(num2.getNumberA(), 2);
-            int downImag = (int) Math.pow(functionComNum.ImagPartFrStrToInt(num2), 2);
+            int downImag = (int) Math.pow(super.functionComNum.ImagPartFrStrToInt(num2), 2);
             int down = downReal + downImag;
 
             if (((ComplexNumber) num2).getMathOperation() == "+") {
@@ -19,7 +19,7 @@ public class DivisionTwoNum extends MultiplicationTwoNum implements OperableTwoN
             }
             NumbersPool up = super.operate(num1, num2);
 
-            return functionComNum.reduction (up, down);
+            return super.functionComNum.reduction (up, down);
         } else {
             throw new Exception("На данный момент калькулятор работает только " +
                     "с комплексными числами");

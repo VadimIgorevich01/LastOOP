@@ -9,16 +9,16 @@ public class MultiplicationTwoNum extends AdditionTwoNum implements OperableTwoN
     public NumbersPool operate(NumbersPool num1, NumbersPool num2) throws Exception {
         if (num1 instanceof ComplexNumber && num2 instanceof ComplexNumber) {
             int realPartInt = num1.getNumberA() * num2.getNumberA();
-            int imaginaryPartInt = functionComNum.MultiplyImagAndRealParts(num1,
+            int imaginaryPartInt = super.functionComNum.MultiplyImagAndRealParts(num1,
                     num2.getNumberA());
-            NumbersPool firstComNum = functionComNum.FrIntRealImagToComNum(realPartInt,
+            NumbersPool firstComNum = super.functionComNum.FrIntRealImagToComNum(realPartInt,
                     imaginaryPartInt);
 
-            int realPartInt2NotFinal = functionComNum.MultiplyTwoImagParts(num1, num2);
+            int realPartInt2NotFinal = super.functionComNum.MultiplyTwoImagParts(num1, num2);
             int realPartInt2Final = -1 * realPartInt2NotFinal;
-            int imaginaryPartInt2 = functionComNum.MultiplyImagAndRealParts(num2,
+            int imaginaryPartInt2 = super.functionComNum.MultiplyImagAndRealParts(num2,
                     num1.getNumberA());
-            NumbersPool secondComNum = functionComNum.FrIntRealImagToComNum(realPartInt2Final,
+            NumbersPool secondComNum = super.functionComNum.FrIntRealImagToComNum(realPartInt2Final,
                     imaginaryPartInt2);
 
             return super.operate(firstComNum, secondComNum);
